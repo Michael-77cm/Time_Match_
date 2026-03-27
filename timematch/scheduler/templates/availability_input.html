@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section class="card">
+    <h1>Availability Input</h1>
+    <form method="post" class="form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="button">Submit availability</button>
+    </form>
+</section>
+{% endblock %}
