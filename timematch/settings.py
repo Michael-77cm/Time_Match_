@@ -30,7 +30,7 @@ DEBUG = os.getenv("DEBUG", "True") == "True"
 
 ALLOWED_HOSTS = [
     host.strip()
-    for host in os.getenv("ALLOWED_HOSTS", "127.0.0.1,localhost,.herokuapp.com").split(",")
+    for host in os.getenv("ALLOWED_HOSTS", "127.0.0.1,localhost,.herokuapp.com", '8000-nielmc-django-project-0kylrta3cs.us2.codeanyapp.com',).split(",")
     if host.strip()
 ]
 
