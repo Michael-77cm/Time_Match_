@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 import os
 from pathlib import Path
-if os.path.isfile("env.py"):
+if "DYNO" not in os.environ and os.path.isfile("env.py"):
    import env
 
 # Add dj-database-url for Heroku database config
