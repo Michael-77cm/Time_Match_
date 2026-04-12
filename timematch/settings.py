@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 import os
 from pathlib import Path
+if os.path.isfile("env.py"):
+   import env
 
 # Add dj-database-url for Heroku database config
 import dj_database_url
@@ -33,9 +35,11 @@ DEBUG = os.getenv("DEBUG", "False") == "True"
 
 ALLOWED_HOSTS = [
     host.strip()
-    for host in os.getenv("ALLOWED_HOSTS", "127.0.0.1,localhost,.herokuapp.com",).split(",")
+    for host in os.getenv("ALLOWED_HOSTS", "127.0.0.1,localhost,.herokuapp.com,time-match-s-6a7cdb6442ff.herokuapp.com",).split(",")
     if host.strip()
 ]
+
+CSRF_TRUSTED_ORIGINS = [ 'https://time-match-s-6a7cdb6442ff.herokuapp.com/']
 
 
 # Application definition
