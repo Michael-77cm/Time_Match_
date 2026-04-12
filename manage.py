@@ -6,11 +6,11 @@ import sys
 
 def main():
     """Run administrative tasks."""
-    # Ensure the project root is in sys.path
+    # Ensure this project directory is first in sys.path.
     current_path = os.path.dirname(os.path.abspath(__file__))
-    project_root = os.path.dirname(current_path)
-    if project_root not in sys.path:
-        sys.path.insert(0, project_root)
+    if current_path in sys.path:
+        sys.path.remove(current_path)
+    sys.path.insert(0, current_path)
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'timematch.settings')
     try:
         from django.core.management import execute_from_command_line

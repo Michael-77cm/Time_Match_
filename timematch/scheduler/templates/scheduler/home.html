@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section class="card">
+    <h1>Home page</h1>
+    <p>Plan your hangout easily by finding the best time for everyone.</p>
+    {% if user.is_authenticated %}
+        <a class="button" href="{% url 'create_event' %}">Open dashboard</a>
+    {% else %}
+        <a class="button" href="{% url 'login' %}">Log in</a>
+        <a class="button secondary" href="{% url 'signup' %}">Create account</a>
+    {% endif %}
+</section>
+{% endblock %}

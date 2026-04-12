@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section class="card">
+    <h1>Event Overview</h1>
+    {% if selected_event %}
+        <h2>{{ selected_event.title }}</h2>
+        {% if best_time %}
+            <p><strong>Best time:</strong> {{ best_time.datetime }}</p>
+            {% if best_time.count %}
+                <p><strong>Attendees available:</strong> {{ best_time.count }}</p>
+            {% endif %}
+        {% else %}
+            <p>No time suggestions yet.</p>
+        {% endif %}
+        
+        {% if other_options %}
+            <h3>Other options:</h3>
+            <ul>
+            {% for option in other_options %}
+                <li>{{ option.datetime }} ({{ option.count }} available)</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+        
+        <form method="post">
+            {% csrf_token %}
+            {% if best_time %}
+                <button type="submit" name="finalize" value="1" class="button">Finalize Event Time</button>
+            {% endif %}
+        </form>
+    {% else %}
+        <p>No events found.</p>
+    {% endif %}
+    
+    {% if events %}
+        <h3>Your events:</h3>
+        <ul>
+        {% for event in events %}
+            <li>
+                <a href="?event_id={{ event.id }}">{{ event.title }}</a>
+                (Code: {{ event.code }})
+            </li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+</section>
+{% endblock %}
