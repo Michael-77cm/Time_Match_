@@ -142,7 +142,12 @@ STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 if not DEBUG:
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+    STORAGES = {
+        "staticfiles": {
+            "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+        },
+    }
+    WHITENOISE_USE_FINDERS = True
 LOGIN_REDIRECT_URL = 'create_event'
 LOGOUT_REDIRECT_URL = 'home'
 CSRF_TRUSTED_ORIGINS = [
