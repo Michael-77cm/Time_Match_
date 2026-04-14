@@ -148,6 +148,7 @@ if not DEBUG:
         },
     }
     WHITENOISE_USE_FINDERS = True
+LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = 'create_event'
 LOGOUT_REDIRECT_URL = 'home'
 CSRF_TRUSTED_ORIGINS = [
