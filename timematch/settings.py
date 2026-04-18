@@ -35,11 +35,12 @@ DEBUG = os.getenv("DEBUG", "False") == "True"
 
 ALLOWED_HOSTS = [
     host.strip()
-    for host in os.getenv("ALLOWED_HOSTS", "127.0.0.1,localhost,.herokuapp.com", https://time-match-s-6a7cdb6442ff.herokuapp.com/).split(",")
+    for host in os.getenv(
+        "ALLOWED_HOSTS",
+        "127.0.0.1,localhost,.herokuapp.com,time-match-s-6a7cdb6442ff.herokuapp.com",
+    ).split(",")
     if host.strip()
 ]
-
-CSRF_TRUSTED_ORIGINS = [ 'https://time-match-s-6a7cdb6442ff.herokuapp.com/''https://*.herokuapp.com']
 
 
 # Application definition
