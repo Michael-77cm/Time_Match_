@@ -1,4 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<section class="card narrow"> <h1>Login</h1> <form method="post" class="form"> {% csrf_token %} {{ form.as_p }} <button type="submit" class="button">Log in</button> </form> </section> {% endblock %} EOF
+<section class="card narrow">
+	<h1>Login</h1>
+	<form method="post" class="form">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button type="submit" class="button">Log in</button>
+	</form>
+</section>
+{% endblock %}

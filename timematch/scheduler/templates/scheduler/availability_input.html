@@ -5,11 +5,8 @@
     <h1>Availability Input</h1>
     <form method="post" class="form">
         {% csrf_token %}
-        <label for="id_event">Event title</label>
-        {{ form.event }}
-        <label for="id_available_time_slots">Available time slots</label>
-        {{ form.available_time_slots }}
-        <button type="submit" class="button">Submit Availability</button>
+        {{ form.as_p }}
+        <button type="submit" class="button">Submit availability</button>
     </form>
 </section>
 {% endblock %}

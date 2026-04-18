@@ -8,5 +8,17 @@
         {{ form.as_p }}
         <button type="submit" class="button">Create event</button>
     </form>
+
+    {% if events %}
+        <h3>Your events</h3>
+        <ul>
+            {% for event in events %}
+                <li>
+                    {{ event.title }}
+                    <small>(code: {{ event.code }})</small>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
 </section>
 {% endblock %}

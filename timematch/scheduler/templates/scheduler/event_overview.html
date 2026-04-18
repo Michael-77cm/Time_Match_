@@ -5,11 +5,13 @@
     <h1>Event Overview</h1>
     {% if selected_event %}
         <h2>{{ selected_event.title }}</h2>
+        <p><strong>Code:</strong> {{ selected_event.code }}</p>
+        {% if selected_event.finalized_datetime %}
+            <p><strong>Finalized time:</strong> {{ selected_event.finalized_datetime|date:"M j, Y g:i A" }}</p>
+        {% endif %}
         {% if best_time %}
-            <p><strong>Best time:</strong> {{ best_time.datetime }}</p>
-            {% if best_time.count %}
-                <p><strong>Attendees available:</strong> {{ best_time.count }}</p>
-            {% endif %}
+            <p><strong>Best time:</strong> {{ best_time.datetime|date:"M j, Y g:i A" }}</p>
+            <p><strong>Match:</strong> {{ best_time.match_percent }}% ({{ best_time.score }}/{{ best_time.max_score }})</p>
         {% else %}
             <p>No time suggestions yet.</p>
         {% endif %}
@@ -18,7 +20,10 @@
             <h3>Other options:</h3>
             <ul>
             {% for option in other_options %}
-                <li>{{ option.datetime }} ({{ option.count }} available)</li>
+                <li>
+                    {{ option.datetime|date:"M j, Y g:i A" }}
+                    ({{ option.match_percent }}%, {{ option.score }}/{{ option.max_score }})
+                </li>
             {% endfor %}
             </ul>
         {% endif %}
