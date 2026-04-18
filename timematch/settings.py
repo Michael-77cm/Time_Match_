@@ -39,7 +39,7 @@ ALLOWED_HOSTS = [
     if host.strip()
 ]
 
-CSRF_TRUSTED_ORIGINS = [ 'https://*.herokuapp.com']
+CSRF_TRUSTED_ORIGINS = [ 'https://time-match-s-6a7cdb6442ff.herokuapp.com/''https://*.herokuapp.com']
 
 
 # Application definition
@@ -153,7 +153,7 @@ LOGIN_REDIRECT_URL = 'create_event'
 LOGOUT_REDIRECT_URL = 'home'
 CSRF_TRUSTED_ORIGINS = [
     origin.strip()
-    for origin in os.getenv("CSRF_TRUSTED_ORIGINS", 'https://*.herokuapp.com').split(",")
+    for origin in os.getenv("CSRF_TRUSTED_ORIGINS", 'https://time-match-s-6a7cdb6442ff.herokuapp.com/' 'https://*.herokuapp.com').split(",")
     if origin.strip()
 ]
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
